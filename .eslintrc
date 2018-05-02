@@ -1,11 +1,18 @@
 {
   "extends": "airbnb",
-    "env": {
-      "browser": true,
-      "node": true,
-      "jasmine": true,
-      "jest": true
-    },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true,
+    "jest": true,
+    "es6": true
+  },
 
-    "plugins": [ "react", "jasmine" ]
+  "plugins": [ "react", "jasmine" ],
+
+  "parser": "babel-eslint",
+
+  "rules": {
+    "react/no-did-mount-set-state" : "off"
+  }
 }
