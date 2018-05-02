@@ -2,11 +2,18 @@
   "name": "uwazi-pdf-renderer",
   "version": "0.0.1",
   "description": "React PDF renderer.",
-  "dependencies": {
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/RafaPolit/uwazi-pdf-renderer"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0"
+  }
 }
