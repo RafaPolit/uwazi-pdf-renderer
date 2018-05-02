@@ -9,11 +9,16 @@
   },
   "license": "MIT",
   "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0"
+    "eslint-config-airbnb": "^16.1.0",
+    "jest": "^22.4.3"
   }
 }
