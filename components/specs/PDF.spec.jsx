@@ -12,9 +12,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = '../../node_modules/pdfjs-dist/build/pd
 
 describe('PDF', () => {
   let component;
-  let instance;
   let Loading;
-  let globalWindow;
 
   const readPDFData = pdfURL => new Promise((resolve, reject) => {
     fs.readFile(pdfURL, (err, rawData) => {
@@ -32,17 +30,7 @@ describe('PDF', () => {
     };
 
     component = shallow(<PDF url={serverClientMock} {...props} />);
-    instance = component.instance();
   };
-
-  beforeEach(() => {
-    globalWindow = global.window;
-    delete global.window;
-  });
-
-  afterEach(() => {
-    global.window = globalWindow;
-  });
 
   it('should render a default Loading', async () => {
     await render();
@@ -55,15 +43,9 @@ describe('PDF', () => {
     expect(component.type()).toBe(Loading);
   });
 
-  fit('should render one Page component for each page', (done) => {
-    render()
-      .then(() => {
-        console.log('aqui llego en Test:');
-        return instance.getDocument();
-      })
-      .then((pdfDocument) => {
-        console.log('Tengo PDF:', pdfDocument);
-        done();
-      });
+  it('should render one Page component for each page', async () => {
+    await render();
+    await component.update();
+    expect(component.find(Page).length).toBe(28);
   });
 });

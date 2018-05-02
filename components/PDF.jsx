@@ -4,8 +4,6 @@ import pdfjsLib from 'pdfjs-dist';
 
 import Page from './Page';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = '../node_modules/pdfjs-dist/build/pdf.worker.js';
-
 export default class PDF extends Component {
   static defaultProps = {
     Loading: () => {},
@@ -22,15 +20,10 @@ export default class PDF extends Component {
   state = { pdfDocument: null }
 
   componentDidMount() {
-    // console.log('prior to get:', pdfjsLib);
-  }
-
-  getDocument() {
-    return pdfjsLib.getDocument(this.props.url)
+    pdfjsLib.getDocument(this.props.url)
       .then((pdfDocument) => {
         console.log('about to set state');
         this.setState({ pdfDocument });
-        return pdfDocument;
       })
       .catch((err) => {
         console.log('ERR:', err);
