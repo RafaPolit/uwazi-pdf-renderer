@@ -32,7 +32,7 @@ describe('PDF', () => {
     component = shallow(<PDF url={serverClientMock} {...props} />);
   };
 
-  it('should render a default Loading', async () => {
+  it('should render a default (empty) Loading', async () => {
     await render();
     expect(component.type()).toBe(component.instance().props.Loading);
   });
