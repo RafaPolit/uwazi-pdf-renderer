@@ -6,7 +6,7 @@ import Page from './Page';
 
 export default class PDF extends Component {
   static defaultProps = {
-    Loading: () => {},
+    Loading: () => <div>Que dice algo</div>,
   }
 
   static propTypes = {
@@ -20,6 +20,7 @@ export default class PDF extends Component {
   state = { pdfDocument: null }
 
   componentDidMount() {
+    console.log('URL:', this.props.url);
     pdfjsLib.getDocument(this.props.url)
       .then((pdfDocument) => {
         console.log('about to set state');
@@ -31,6 +32,7 @@ export default class PDF extends Component {
   }
 
   render() {
+    console.log('Render!');
     const { Loading } = this.props;
     const { pdfDocument } = this.state;
 
