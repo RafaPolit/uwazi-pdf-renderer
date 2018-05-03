@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import pdfjsLib from 'pdfjs-dist';
@@ -29,6 +30,9 @@ export default class PDF extends Component {
       });
   }
 
+  pdfViewer = require('../../node_modules/pdfjs-dist/web/pdf_viewer.js')
+  pdfViewerCss = require('../../node_modules/pdfjs-dist/web/pdf_viewer.css');
+
   render() {
     const { Loading } = this.props;
     const { pdfDocument } = this.state;
@@ -37,6 +41,7 @@ export default class PDF extends Component {
       return <Loading />;
     }
 
+    console.log('pdfDocument:', pdfDocument);
     console.log('numPages:', pdfDocument.numPages);
 
     const pages = [];
@@ -44,7 +49,8 @@ export default class PDF extends Component {
       pages.push(<Page
         key={page}
         page={page}
-        pdf={pdfDocument}
+        pdfDocument={pdfDocument}
+        pdfViewer={this.pdfViewer}
       />);
     }
 
