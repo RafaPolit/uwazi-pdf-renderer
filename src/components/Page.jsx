@@ -43,6 +43,6 @@ export default class Page extends Component {
   }
 
   render() {
-    return <div ref={this.pageContainer} />;
+    return <div className="pdf pdf-page" style={{ position: 'relative' }} ref={this.pageContainer} />;
   }
 }
