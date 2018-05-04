@@ -12,6 +12,7 @@ export default class PDF extends Component {
     Loading: () => <div>Loading ...</div>,
     pageClass: 'pdf-page',
     pageNumberProperty: 'page-number',
+    highlights: [],
   }
 
   static propTypes = {
@@ -22,6 +23,7 @@ export default class PDF extends Component {
     Loading: PropTypes.func,
     pageClass: PropTypes.string,
     pageNumberProperty: PropTypes.string,
+    highlights: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   };
 
   state = { pdfDocument: null }
@@ -43,7 +45,13 @@ export default class PDF extends Component {
   pdfViewerCss = require('../../node_modules/pdfjs-dist/web/pdf_viewer.css');
 
   render() {
-    const { Loading, pageClass, pageNumberProperty } = this.props;
+    const {
+      Loading,
+      pageClass,
+      pageNumberProperty,
+      highlights,
+    } = this.props;
+
     const { pdfDocument } = this.state;
 
     if (!pdfDocument) {
@@ -51,7 +59,11 @@ export default class PDF extends Component {
     }
 
     return (
-      <SelectionArea pageClass={pageClass} pageNumberProperty={pageNumberProperty}>
+      <SelectionArea
+        highlights={highlights}
+        pageClass={pageClass}
+        pageNumberProperty={pageNumberProperty}
+      >
         {() => [...Array(pdfDocument.numPages).keys()].map(pageNumber => (
           <SelectionLayer pageNumber={pageNumber + 1} key={pageNumber + 1}>
             <Page
