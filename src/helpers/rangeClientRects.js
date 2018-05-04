@@ -11,7 +11,7 @@ const findAncestor = (element, className) => {
 export default {
   get(range, parentCssSelector, pageAttribute) {
     const elementWrapper = document.createElement('span');
-    const wrapped = rangeWrapper.wrap(range, elementWrapper);
+    const wrapped = rangeWrapper.wrap(elementWrapper, range);
 
     let parentNodeRect = {
       top: 0,

@@ -66,7 +66,7 @@ describe('rangeClientRects', () => {
 
     const elementWrapper = document.createElement('span');
     const rects = rangeClientRects.get(range);
-    expect(wrapper.wrap).toHaveBeenCalledWith(range, elementWrapper);
+    expect(wrapper.wrap).toHaveBeenCalledWith(elementWrapper, range);
     expect(rects).toEqual([
       getClientRects()[0],
       getClientRects()[0],
@@ -82,7 +82,7 @@ describe('rangeClientRects', () => {
 
       const elementWrapper = document.createElement('span');
       const rects = rangeClientRects.get(range, 'page', 'data-page');
-      expect(wrapper.wrap).toHaveBeenCalledWith(range, elementWrapper);
+      expect(wrapper.wrap).toHaveBeenCalledWith(elementWrapper, range);
       expect(rects).toEqual([
         Object.assign({}, relativeNodeRect, { page: '1' }),
         Object.assign({}, relativeNodeRect, { page: '1' }),
