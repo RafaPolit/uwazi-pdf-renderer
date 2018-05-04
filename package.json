@@ -6,7 +6,8 @@
     "pdfjs-dist": "^2.0.489",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "wrap-range-text": "^1.0.1"
   },
   "repository": {
     "type": "git",
