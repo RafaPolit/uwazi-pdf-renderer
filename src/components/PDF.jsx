@@ -1,4 +1,17 @@
 /* eslint-disable global-require */
+/*
+
+In linux, selecting across pages yields some weird colors.
+This CSS fixes the issues:
+.selection-area *::selection {
+    background: transparent;
+}
+
+.selection-area .textLayer div::selection {
+    background: #0000ff;
+}
+
+*/
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import pdfjsLib from 'pdfjs-dist';
