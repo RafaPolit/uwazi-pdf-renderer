@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "React PDF renderer.",
   "dependencies": {
-    "pdfjs-dist": "^2.0.489",
+    "pdfjs-dist": "2.0.550",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
